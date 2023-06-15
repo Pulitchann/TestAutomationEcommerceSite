@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 
 public class BasePage {
 	
-	private static Logger logger = LoggerFactory.getLogger(BasePage.class);
 	
 	public int Random_Number_Generator() {
 		int RandNum = (int) (Math.random() * 999 + 100);
