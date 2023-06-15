@@ -4,9 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class CreateAnAccountPage extends BasePage {
+	
+	private static Logger logger = LoggerFactory.getLogger(CreateAnAccountPage.class);
 
+	
 	WebDriver driver;
 	
 	public CreateAnAccountPage(WebDriver driver) {
@@ -121,9 +127,9 @@ public class CreateAnAccountPage extends BasePage {
 	public void VerifyErrorAlertForMandatoryFields() {
 		
 		if(ErrorAlertForMandatoryFields.isDisplayed() == true) {
-			System.out.println("Success! Error Alert For Mandatory Fields is displayed");
+			logger.info("Success! Error Alert For Mandatory Fields is displayed");
 		}else {
-			System.out.println("Failure, Error Alert For Mandatory Fields is not displayed");
+			logger.warn("Failure, Error Alert For Mandatory Fields is not displayed");
 		}
 	}
 }

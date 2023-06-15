@@ -6,9 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MyAccountPage {
-
+	private static Logger logger = LoggerFactory.getLogger(MyAccountPage.class);
+	
 	WebDriver driver;
 
 	public MyAccountPage(WebDriver driver) {
@@ -41,6 +44,6 @@ public class MyAccountPage {
 	
 	public void Assert_NameOnAccount(String FirstName, String LastName) {
 		String FullName = FirstName + " " + LastName;
-		
+		logger.info(FullName);
 	}
 }

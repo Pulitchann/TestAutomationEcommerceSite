@@ -5,9 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BasePage {
-
+	
+	private static Logger logger = LoggerFactory.getLogger(BasePage.class);
+	
 	public int Random_Number_Generator() {
 		int RandNum = (int) (Math.random() * 999 + 100);
 		return RandNum;

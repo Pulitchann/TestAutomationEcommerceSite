@@ -45,7 +45,7 @@ public class WishListWorksAfterLogin {
 		//6. Verify that error message is displayed
 		ts.Verify_wishlist_ErrorBox();
 
-		Thread.sleep(3000);
+		
 	}
 
 	@AfterMethod

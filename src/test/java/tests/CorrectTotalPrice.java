@@ -1,5 +1,7 @@
 package tests;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
@@ -83,7 +85,7 @@ public class CorrectTotalPrice {
 		// 13. Verify that Total price is changing and reflecting correct price.
 		ProdP.TestTotalCalculation();
 
-		Thread.sleep(5000);
+		
 	}
 
 	// Closing browser
