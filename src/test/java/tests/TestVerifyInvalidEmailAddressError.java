@@ -6,42 +6,42 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import pages.CreateAnAccountPage;
 import pages.LoginPage;
 import pages.MainPage;
 import util.BrowserFactory;
 
-/*Test Case - Verify error messages for mandatory fields.
+/*Test Case - Verify invalid email address error.
 
 Steps to Automate:
 1. Open url
 2. Click on sign in link.
-3. Enter email address and click Register button.
-4. Leave the mandatory fields (marked with *) blank and click Register button.
-5. Verify that error has been displayed for the mandatory fields.*/
+3. Enter invalid email address in the email box and click enter.
+4. Validate that an error message is displaying saying "Invalid email address."*/
 
-public class VerifyErrorMessagesForMandatoryFieldsTest {
+public class TestVerifyInvalidEmailAddressError {
 
 	WebDriver driver;
 
+	// Starting browser and navigating to website
+	// 1. Open link
 	@BeforeMethod
 	public void StartBrowser() {
 		driver = BrowserFactory.launchBrowser();
 	}
 
 	@Test
-	public void TestVerifyErrorMessagesForMandatoryFields() {
+	public void TestVerifyInvalidEmailAddressError() {
 		MainPage mainp = PageFactory.initElements(driver, MainPage.class);
+		// 2. Click on sign in link.
 		mainp.clickOnSignInButton();
 
 		LoginPage loginp = PageFactory.initElements(driver, LoginPage.class);
-		loginp.fillCreatAccountEmailField();
+		// 3. Enter invalid email address in the email box and click enter.
+		loginp.fillCreatAccountWithInvalidEmailField("useremail@yxz");
 		loginp.clickCreateAnAccountButton();
-
-		CreateAnAccountPage createaccp = PageFactory.initElements(driver, CreateAnAccountPage.class);
-		createaccp.clickRegisterButton();
-		createaccp.verifyErrorAlertForMandatoryFields();
-
+		// 4. Validate that an error message is displaying saying "Invalid email
+		// address".
+		loginp.verifyCreatAccountWithInvalidEmailField();
 	}
 
 	// Closing browser

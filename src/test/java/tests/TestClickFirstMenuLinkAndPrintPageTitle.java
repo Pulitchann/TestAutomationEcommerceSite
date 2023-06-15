@@ -23,7 +23,7 @@ Steps to Automate:
 8. Get the page title and print it. Verify that value matches with output of point no. 4
 9. Close the browser.*/
 
-public class ClickFirstMenuLinkAndPrintPageTitleTest {
+public class TestClickFirstMenuLinkAndPrintPageTitle {
 	WebDriver driver;
 
 	/*
@@ -31,13 +31,13 @@ public class ClickFirstMenuLinkAndPrintPageTitleTest {
 	 */
 	//Starting Browser
 	@BeforeMethod
-	public void StartBrowser() {
+	public void startBrowser() {
 		driver = BrowserFactory.launchBrowser();
 	}
 
 	//the actual test
 	@Test
-	public void clickFirstMenuLinkAndPrintPageTitleTest() {
+	public void TestclickFirstMenuLinkAndPrintPageTitle() {
 
 		MainPage mainP = PageFactory.initElements(driver, MainPage.class);
 		// 4. Get the page title and print it.
@@ -67,7 +67,7 @@ public class ClickFirstMenuLinkAndPrintPageTitleTest {
 	// 9. Close the browser.
 	// Closing browser
 	@AfterMethod
-	public void CloseBrowser() {
+	public void closeBrowser() {
 		BrowserFactory.closeBrowser();
 	}
 

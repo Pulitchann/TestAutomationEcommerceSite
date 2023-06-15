@@ -19,7 +19,7 @@ Steps to Automate:
 5. 'Add to Wishlist' will appear on the bottom of that product, click on it.
 6. Verify that error message is displayed 'You must be logged in to manage your wishlist.'*/
 
-public class WishListWorksAfterLoginTest {
+public class TestWishListWorksAfterLogin {
 	WebDriver driver;
 
 	//1. Open link http://automationpractice.com/index.php
@@ -31,11 +31,11 @@ public class WishListWorksAfterLoginTest {
 	@Test
 	public void TestWishListWorksAfterLohin() throws InterruptedException {
 
-		MainPage MainP = PageFactory.initElements(driver, MainPage.class);
+		MainPage mainP = PageFactory.initElements(driver, MainPage.class);
 		// 2. Move your cursor over Women's link.
-		MainP.hoverOverWomenButton();
+		mainP.hoverOverWomenButton();
 		// 3. Click on sub menu 'T-shirts'.
-		MainP.clickTshirtsButton();
+		mainP.clickTshirtsButton();
 
 		TshirtsPage ts = PageFactory.initElements(driver, TshirtsPage.class);
 		// 4. Mouse hover on the second product displayed.

@@ -32,7 +32,7 @@ Steps to Automate:
 12. Change the quantity to 2.
 13. Verify that Total price is changing and reflecting correct price.*/
 
-public class CorrectTotalPriceTest {
+public class TestCorrectTotalPrice {
 	WebDriver driver;
 
 	// Starting browser and navigating to website
