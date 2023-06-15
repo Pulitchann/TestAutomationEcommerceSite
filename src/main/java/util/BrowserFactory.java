@@ -7,10 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BrowserFactory {
 	
-	private BrowserFactory() {
-	    throw new IllegalStateException("Utility class");
-	}
-	
 	static WebDriver driver;
 	
 	//Open Browser

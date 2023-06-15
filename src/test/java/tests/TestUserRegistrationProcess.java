@@ -31,7 +31,7 @@ public class TestUserRegistrationProcess {
 	// 2. Click on sign in link.
 	// Starting browser and navigating to website
 	@BeforeMethod
-	public void StartBrowser() {
+	public void startBrowser() {
 		driver = BrowserFactory.launchBrowser();
 	}
 
@@ -62,36 +62,36 @@ public class TestUserRegistrationProcess {
 		// 4. Click on Create an Account button.
 		loginP.clickCreateAnAccountButton();
 
-		CreateAnAccountPage CreateAcc = PageFactory.initElements(driver, CreateAnAccountPage.class);
+		CreateAnAccountPage createAcc = PageFactory.initElements(driver, CreateAnAccountPage.class);
 		// 5. Enter your Personal Information, Address and Contact info.
-		CreateAcc.clickMrRadioButton();
-		CreateAcc.fillFirstNameField(firstName);
-		CreateAcc.fillLastNameField(lastName);
-		CreateAcc.fillPasswordField(password);
-		CreateAcc.selectDaySelection(day);
-		CreateAcc.selectMonthSelection(month);
-		CreateAcc.selectYearSelection(year);
-		CreateAcc.clickNewsletterCheckBox();
-		CreateAcc.clickSpecialOfferCheckBox();
-		CreateAcc.fillAddressCompanyField(company);
-		CreateAcc.fillAddress1Field(address);
-		CreateAcc.fillCityField(city);
-		CreateAcc.selectStateField(state);
-		CreateAcc.fillZipCodeField(zipCode);
-		CreateAcc.selectCountryField(country);
-		CreateAcc.fillCellPhoneField();
-		CreateAcc.fillAliasAddressField(alias);
+		createAcc.clickMrRadioButton();
+		createAcc.fillFirstNameField(firstName);
+		createAcc.fillLastNameField(lastName);
+		createAcc.fillPasswordField(password);
+		createAcc.selectDaySelection(day);
+		createAcc.selectMonthSelection(month);
+		createAcc.selectYearSelection(year);
+		createAcc.clickNewsletterCheckBox();
+		createAcc.clickSpecialOfferCheckBox();
+		createAcc.fillAddressCompanyField(company);
+		createAcc.fillAddress1Field(address);
+		createAcc.fillCityField(city);
+		createAcc.selectStateField(state);
+		createAcc.fillZipCodeField(zipCode);
+		createAcc.selectCountryField(country);
+		createAcc.fillCellPhoneField();
+		createAcc.fillAliasAddressField(alias);
 		// 6. Click on Register button.
-		CreateAcc.clickRegisterButton();
+		createAcc.clickRegisterButton();
 
 		// 7. Validate that user is created.
-		MyAccountPage MyAccP = PageFactory.initElements(driver, MyAccountPage.class);
-		MyAccP.assertNameOnAccount(firstName, lastName);
+		MyAccountPage myAccP = PageFactory.initElements(driver, MyAccountPage.class);
+		myAccP.assertNameOnAccount(firstName, lastName);
 	}
 
 	// Closing browser
 	@AfterMethod
-	public void CloseBrowser() {
+	public void closeBrowser() {
 		BrowserFactory.closeBrowser();
 	}
 }

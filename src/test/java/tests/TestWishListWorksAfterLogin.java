@@ -24,7 +24,7 @@ public class TestWishListWorksAfterLogin {
 
 	//1. Open link http://automationpractice.com/index.php
 	@BeforeMethod
-	public void StartBrowser() {
+	public void startBrowser() {
 		driver = BrowserFactory.launchBrowser();
 	}
 
@@ -49,7 +49,7 @@ public class TestWishListWorksAfterLogin {
 	}
 
 	@AfterMethod
-	public void CloseBrowser() {
+	public void closeBrowser() {
 		BrowserFactory.closeBrowser();
 	}
 }

@@ -25,7 +25,7 @@ public class TestVerifyInvalidEmailAddressError {
 	// Starting browser and navigating to website
 	// 1. Open link
 	@BeforeMethod
-	public void StartBrowser() {
+	public void startBrowser() {
 		driver = BrowserFactory.launchBrowser();
 	}
 
@@ -46,7 +46,7 @@ public class TestVerifyInvalidEmailAddressError {
 
 	// Closing browser
 	@AfterMethod
-	public void CloseBrowser() {
+	public void closeBrowser() {
 		BrowserFactory.closeBrowser();
 	}
 

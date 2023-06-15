@@ -39,7 +39,7 @@ public class TestBuyOrderFunctionality {
 	// Starting browser and navigating to website
 	// 1. Open link http://automationpractice.com/index.php
 	@BeforeMethod
-	public void StartBrowser() {
+	public void startBrowser() {
 		driver = BrowserFactory.launchBrowser();
 	}
 

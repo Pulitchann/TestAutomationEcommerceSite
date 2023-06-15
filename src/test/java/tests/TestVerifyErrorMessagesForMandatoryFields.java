@@ -25,7 +25,7 @@ public class TestVerifyErrorMessagesForMandatoryFields {
 	WebDriver driver;
 
 	@BeforeMethod
-	public void StartBrowser() {
+	public void startBrowser() {
 		driver = BrowserFactory.launchBrowser();
 	}
 
@@ -46,7 +46,7 @@ public class TestVerifyErrorMessagesForMandatoryFields {
 
 	// Closing browser
 	@AfterMethod
-	public void CloseBrowser() {
+	public void closeBrowser() {
 		BrowserFactory.closeBrowser();
 	}
 
