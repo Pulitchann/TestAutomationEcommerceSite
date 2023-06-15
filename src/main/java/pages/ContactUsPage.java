@@ -10,7 +10,7 @@ public class ContactUsPage {
 		this.driver = driver;
 	}
 	
-	public String GetPageTitle() {
+	public String getPageTitle() {
 		return driver.getTitle();
 	}
 }

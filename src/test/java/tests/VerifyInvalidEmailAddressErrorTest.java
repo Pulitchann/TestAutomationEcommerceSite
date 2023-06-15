@@ -18,7 +18,7 @@ Steps to Automate:
 3. Enter invalid email address in the email box and click enter.
 4. Validate that an error message is displaying saying "Invalid email address."*/
 
-public class VerifyInvalidEmailAddressError {
+public class VerifyInvalidEmailAddressErrorTest {
 
 	WebDriver driver;
 
@@ -26,28 +26,28 @@ public class VerifyInvalidEmailAddressError {
 	// 1. Open link
 	@BeforeMethod
 	public void StartBrowser() {
-		driver = BrowserFactory.LaunchBrowser();
+		driver = BrowserFactory.launchBrowser();
 	}
 
 	@Test
 	public void TestVerifyInvalidEmailAddressError() {
 		MainPage mainp = PageFactory.initElements(driver, MainPage.class);
 		// 2. Click on sign in link.
-		mainp.ClickOnSignInButton();
+		mainp.clickOnSignInButton();
 
 		LoginPage loginp = PageFactory.initElements(driver, LoginPage.class);
 		// 3. Enter invalid email address in the email box and click enter.
-		loginp.Fill_CreatAccount_WithInvalidEmail_Field("useremail@yxz");
-		loginp.Click_CreateAnAccount_Button();
+		loginp.fillCreatAccountWithInvalidEmailField("useremail@yxz");
+		loginp.clickCreateAnAccountButton();
 		// 4. Validate that an error message is displaying saying "Invalid email
 		// address".
-		loginp.Verify_CreatAccount_WithInvalidEmail_Field();
+		loginp.verifyCreatAccountWithInvalidEmailField();
 	}
 
 	// Closing browser
 	@AfterMethod
 	public void CloseBrowser() {
-		BrowserFactory.CloseBrowser();
+		BrowserFactory.closeBrowser();
 	}
 
 }

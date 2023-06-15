@@ -32,14 +32,14 @@ Steps to Automate:
 12. Change the quantity to 2.
 13. Verify that Total price is changing and reflecting correct price.*/
 
-public class CorrectTotalPrice {
+public class CorrectTotalPriceTest {
 	WebDriver driver;
 
 	// Starting browser and navigating to website
 	// 1. Open link http://automationpractice.com/index.php
 	@BeforeMethod
 	public void StartBrowser() {
-		driver = BrowserFactory.LaunchBrowser();
+		driver = BrowserFactory.launchBrowser();
 	}
 
 	@Test
@@ -50,40 +50,40 @@ public class CorrectTotalPrice {
 		String password = reader.getCellData("LoginInfo", "password", 2);
 
 		MainPage MainP = PageFactory.initElements(driver, MainPage.class);
-		MainP.ClickOnSignInButton();
+		MainP.clickOnSignInButton();
 
 		// 2. Login to the website.
 		LoginPage LoginP = PageFactory.initElements(driver, LoginPage.class);
-		LoginP.Enter_EMail_Address(username);
-		LoginP.Enter_Password(password);
-		LoginP.Click_Signin_Button();
+		LoginP.enterEMailAddress(username);
+		LoginP.enterPassword(password);
+		LoginP.clickSigninButton();
 
 		MyAccountPage MyAcc = PageFactory.initElements(driver, MyAccountPage.class);
 		// 3. Move your cursor over Women's link.
-		MyAcc.Hover_Over_Women_Button();
+		MyAcc.hoverOverWomenButton();
 		// 4. Click on sub menu 'T-shirts'.
-		MyAcc.Click_Tshirts_Button();
+		MyAcc.clickTshirtsButton();
 
 		TshirtsPage ts = PageFactory.initElements(driver, TshirtsPage.class);
 		// 5. Mouse hover on the first product displayed.
-		ts.Hover_Over_Product();
+		ts.hoverOverProduct();
 		// 6. 'More' button will be displayed, click on 'More' button.
-		ts.Click_More_Button_Product_One();
+		ts.clickMoreButtonProductOne();
 
 		ProductPage ProdP = PageFactory.initElements(driver, ProductPage.class);
 		// 7. Make sure quantity is set to 1.
-		ProdP.Enter_Quantity("1");
+		ProdP.enterQuantity("1");
 		// 8. Select size 'L'
-		ProdP.Select_Size("L");
+		ProdP.selectSize("L");
 		// 9. Select color.
-		ProdP.Select_Color();
+		ProdP.selectColor();
 		// 10. Click 'Add to Cart' button.
-		ProdP.Click_AddToCart_Button();
+		ProdP.clickAddToCartButton();
 		// 11. Click 'Proceed to checkout' button.
-		ProdP.Click_ProceedToCheckout_Button();
+		ProdP.clickProceedToCheckoutButton();
 		// 12. Change the quantity to 2.
 		// 13. Verify that Total price is changing and reflecting correct price.
-		ProdP.TestTotalCalculation();
+		ProdP.testTotalCalculation();
 
 		
 	}
@@ -91,6 +91,6 @@ public class CorrectTotalPrice {
 	// Closing browser
 	@AfterMethod
 	public void CloseBrowser() {
-		BrowserFactory.CloseBrowser();
+		BrowserFactory.closeBrowser();
 	}
 }

@@ -14,7 +14,7 @@ public class BrowserFactory {
 	static WebDriver driver;
 	
 	//Open Browser
-	public static WebDriver LaunchBrowser() {
+	public static WebDriver launchBrowser() {
 		
 		ExcelReader reader = new ExcelReader("./data/testdata.xlsx");
 		String url = reader.getCellData("Sheet2", "url", 2);
@@ -30,7 +30,7 @@ public class BrowserFactory {
 	}
 	
 	//Close Browser
-	public static void CloseBrowser() {
+	public static void closeBrowser() {
 		
 		driver.close();
 		driver.quit();

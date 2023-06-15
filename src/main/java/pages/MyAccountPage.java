@@ -14,36 +14,36 @@ public class MyAccountPage {
 	
 	WebDriver driver;
 
-	public MyAccountPage(WebDriver driver) {
+	public void myAccountPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	//Element Library
 	@FindBy(how = How.XPATH, using = "//a[@title='Women']")
-	WebElement Women_Button;
-	@FindBy(how = How.XPATH, using = "//*[@id='block_top_menu']/ul/li[1]/ul/li[1]/ul/li[1]/a")
-	WebElement Tshirts_Button;
-	@FindBy(how = How.XPATH, using = "//*[@id='center_column']/div/div[1]/ul/li[1]/a")
-	WebElement OrderHistoryAndDetails_Button;
+	WebElement womenButton;
+	@FindBy(how = How.XPATH, using = "//*[@id='blocktopmenu']/ul/li[1]/ul/li[1]/ul/li[1]/a")
+	WebElement tshirtsButton;
+	@FindBy(how = How.XPATH, using = "//*[@id='centercolumn']/div/div[1]/ul/li[1]/a")
+	WebElement orderHistoryAndDetailsButton;
 	@FindBy(how = How.XPATH, using = "//a[@class='account']/span")
-	WebElement NameOnAccount;
+	WebElement nameOnAccount;
 
 	//InteractiveMethods
-	public void Hover_Over_Women_Button() {
+	public void hoverOverWomenButton() {
 		Actions actions = new Actions(driver);
-		actions.moveToElement(Women_Button).perform();
+		actions.moveToElement(womenButton).perform();
 	}
 
-	public void Click_Tshirts_Button() {
-		Tshirts_Button.click();
+	public void clickTshirtsButton() {
+		tshirtsButton.click();
 	}
 
-	public void Click_OrderHistoryAndDetails_Button() {
-		OrderHistoryAndDetails_Button.click();
+	public void clickOrderHistoryAndDetailsButton() {
+		orderHistoryAndDetailsButton.click();
 	}
 	
-	public void Assert_NameOnAccount(String FirstName, String LastName) {
-		String FullName = FirstName + " " + LastName;
-		logger.info(FullName);
+	public void assertNameOnAccount(String firstName, String lastName) {
+		String fullName = firstName + " " + lastName;
+		logger.info(fullName);
 	}
 }

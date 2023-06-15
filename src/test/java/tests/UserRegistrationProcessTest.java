@@ -24,7 +24,7 @@ Steps to Automate:
 6. Click on Register button.
 7. Validate that user is created.*/
 
-public class UserRegistrationProcess {
+public class UserRegistrationProcessTest {
 	WebDriver driver;
 
 	// 1. Open this url http://automationpractice.com/index.php
@@ -32,66 +32,66 @@ public class UserRegistrationProcess {
 	// Starting browser and navigating to website
 	@BeforeMethod
 	public void StartBrowser() {
-		driver = BrowserFactory.LaunchBrowser();
+		driver = BrowserFactory.launchBrowser();
 	}
 
 	@Test
 	public void TestUserRegistrationProcess() {
 
 		ExcelReader reader = new ExcelReader("./data/testdata.xlsx");
-		String FirstName = reader.getCellData("Sheet3", "FirstName", 2);
-		String LastName = reader.getCellData("Sheet3", "LastName", 2);
-		String Password = reader.getCellData("Sheet3", "Password", 2);
+		String firstName = reader.getCellData("Sheet3", "FirstName", 2);
+		String lastName = reader.getCellData("Sheet3", "LastName", 2);
+		String password = reader.getCellData("Sheet3", "Password", 2);
 		String day = reader.getCellData("Sheet3", "day", 2);
 		String month = reader.getCellData("Sheet3", "month", 2);
 		String year = reader.getCellData("Sheet3", "year", 2);
-		String Company = reader.getCellData("Sheet3", "Company", 2);
-		String Address = reader.getCellData("Sheet3", "Address", 2);
-		String City = reader.getCellData("Sheet3", "City", 2);
-		String State = reader.getCellData("Sheet3", "State", 2);
-		String ZipCode = reader.getCellData("Sheet3", "ZipCode", 2);
-		String Country = reader.getCellData("Sheet3", "Country", 2);
+		String company = reader.getCellData("Sheet3", "Company", 2);
+		String address = reader.getCellData("Sheet3", "Address", 2);
+		String city = reader.getCellData("Sheet3", "City", 2);
+		String state = reader.getCellData("Sheet3", "State", 2);
+		String zipCode = reader.getCellData("Sheet3", "ZipCode", 2);
+		String country = reader.getCellData("Sheet3", "Country", 2);
 		String alias = reader.getCellData("Sheet3", "alias", 2);
 
-		MainPage MainP = PageFactory.initElements(driver, MainPage.class);
-		MainP.ClickOnSignInButton();
+		MainPage mainP = PageFactory.initElements(driver, MainPage.class);
+		mainP.clickOnSignInButton();
 
-		LoginPage LoginP = PageFactory.initElements(driver, LoginPage.class);
+		LoginPage loginP = PageFactory.initElements(driver, LoginPage.class);
 		// 3. Enter your email address in 'Create and account' section.
-		LoginP.Fill_CreatAccountEmail_Field();
+		loginP.fillCreatAccountEmailField();
 		// 4. Click on Create an Account button.
-		LoginP.Click_CreateAnAccount_Button();
+		loginP.clickCreateAnAccountButton();
 
 		CreateAnAccountPage CreateAcc = PageFactory.initElements(driver, CreateAnAccountPage.class);
 		// 5. Enter your Personal Information, Address and Contact info.
-		CreateAcc.Click_Mr_RadioButton();
-		CreateAcc.Fill_FirstName_Field(FirstName);
-		CreateAcc.Fill_LastName_Field(LastName);
-		CreateAcc.Fill_Password_Field(Password);
-		CreateAcc.SelectDay_Selection(day);
-		CreateAcc.SelectMonth_Selection(month);
-		CreateAcc.SelectYear_Selection(year);
-		CreateAcc.Click_Newsletter_CheckBox();
-		CreateAcc.Click_SpecialOffer_CheckBox();
-		CreateAcc.Fill_Address_Company_Field(Company);
-		CreateAcc.Fill_Address1_Field(Address);
-		CreateAcc.Fill_City_Field(City);
-		CreateAcc.Select_State_Field(State);
-		CreateAcc.Fill_ZipCode_Field(ZipCode);
-		CreateAcc.Select_Country_Field(Country);
-		CreateAcc.Fill_CellPhone_Field();
-		CreateAcc.Fill_AliasAddress_Field(alias);
+		CreateAcc.clickMrRadioButton();
+		CreateAcc.fillFirstNameField(firstName);
+		CreateAcc.fillLastNameField(lastName);
+		CreateAcc.fillPasswordField(password);
+		CreateAcc.selectDaySelection(day);
+		CreateAcc.selectMonthSelection(month);
+		CreateAcc.selectYearSelection(year);
+		CreateAcc.clickNewsletterCheckBox();
+		CreateAcc.clickSpecialOfferCheckBox();
+		CreateAcc.fillAddressCompanyField(company);
+		CreateAcc.fillAddress1Field(address);
+		CreateAcc.fillCityField(city);
+		CreateAcc.selectStateField(state);
+		CreateAcc.fillZipCodeField(zipCode);
+		CreateAcc.selectCountryField(country);
+		CreateAcc.fillCellPhoneField();
+		CreateAcc.fillAliasAddressField(alias);
 		// 6. Click on Register button.
-		CreateAcc.Click_Register_Button();
+		CreateAcc.clickRegisterButton();
 
 		// 7. Validate that user is created.
 		MyAccountPage MyAccP = PageFactory.initElements(driver, MyAccountPage.class);
-		MyAccP.Assert_NameOnAccount(FirstName, LastName);
+		MyAccP.assertNameOnAccount(firstName, lastName);
 	}
 
 	// Closing browser
 	@AfterMethod
 	public void CloseBrowser() {
-		BrowserFactory.CloseBrowser();
+		BrowserFactory.closeBrowser();
 	}
 }

@@ -20,34 +20,34 @@ Steps to Automate:
 4. Leave the mandatory fields (marked with *) blank and click Register button.
 5. Verify that error has been displayed for the mandatory fields.*/
 
-public class VerifyErrorMessagesForMandatoryFields {
+public class VerifyErrorMessagesForMandatoryFieldsTest {
 
 	WebDriver driver;
 
 	@BeforeMethod
 	public void StartBrowser() {
-		driver = BrowserFactory.LaunchBrowser();
+		driver = BrowserFactory.launchBrowser();
 	}
 
 	@Test
 	public void TestVerifyErrorMessagesForMandatoryFields() {
 		MainPage mainp = PageFactory.initElements(driver, MainPage.class);
-		mainp.ClickOnSignInButton();
+		mainp.clickOnSignInButton();
 
 		LoginPage loginp = PageFactory.initElements(driver, LoginPage.class);
-		loginp.Fill_CreatAccountEmail_Field();
-		loginp.Click_CreateAnAccount_Button();
+		loginp.fillCreatAccountEmailField();
+		loginp.clickCreateAnAccountButton();
 
 		CreateAnAccountPage createaccp = PageFactory.initElements(driver, CreateAnAccountPage.class);
-		createaccp.Click_Register_Button();
-		createaccp.VerifyErrorAlertForMandatoryFields();
+		createaccp.clickRegisterButton();
+		createaccp.verifyErrorAlertForMandatoryFields();
 
 	}
 
 	// Closing browser
 	@AfterMethod
 	public void CloseBrowser() {
-		BrowserFactory.CloseBrowser();
+		BrowserFactory.closeBrowser();
 	}
 
 }

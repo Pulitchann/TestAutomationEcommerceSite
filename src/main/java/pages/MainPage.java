@@ -16,34 +16,34 @@ public class MainPage {
 
 	// Element Library
 	@FindBy(how = How.XPATH, using = "//a[contains(text(), 'Sign in')]")
-	WebElement Sign_in_Button;
+	WebElement signinButton;
 	@FindBy(how = How.XPATH, using = "//a[@title='Women']")
-	WebElement Women_Button;
-	@FindBy(how = How.XPATH, using = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[1]/ul/li[1]/a")
-	WebElement Tshirts_Button;
+	WebElement womenButton;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"blocktopmenu\"]/ul/li[1]/ul/li[1]/ul/li[1]/a")
+	WebElement tshirtsButton;
 	@FindBy(how = How.XPATH, using = "//div/a[@title='Contact Us']")
-	WebElement ContactUs_Button;
+	WebElement contactUsButton;
 
 	// InteractiveMethods
-	public void ClickOnSignInButton() {
-		Sign_in_Button.click();
+	public void clickOnSignInButton() {
+		signinButton.click();
 	}
 	
-	public void Hover_Over_Women_Button() {
+	public void hoverOverWomenButton() {
 		Actions actions = new Actions(driver);
-		actions.moveToElement(Women_Button).perform();
+		actions.moveToElement(womenButton).perform();
 	}
 
-	public void Click_Tshirts_Button() {
-		Tshirts_Button.click();
+	public void clickTshirtsButton() {
+		tshirtsButton.click();
 	}
 	
-	public String GetPageTitle() {
+	public String getPageTitle() {
 		return driver.getTitle();
 	}
 	
-	public void Click_ContactUS_Button() {
-		ContactUs_Button.click();
+	public void clickContactUSButton() {
+		contactUsButton.click();
 	}
 
 }

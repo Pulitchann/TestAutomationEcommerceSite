@@ -23,7 +23,7 @@ Steps to Automate:
 8. Get the page title and print it. Verify that value matches with output of point no. 4
 9. Close the browser.*/
 
-public class ClickFirstMenuLinkAndPrintPageTitle {
+public class ClickFirstMenuLinkAndPrintPageTitleTest {
 	WebDriver driver;
 
 	/*
@@ -32,32 +32,32 @@ public class ClickFirstMenuLinkAndPrintPageTitle {
 	//Starting Browser
 	@BeforeMethod
 	public void StartBrowser() {
-		driver = BrowserFactory.LaunchBrowser();
+		driver = BrowserFactory.launchBrowser();
 	}
 
 	//the actual test
 	@Test
-	public void ClickFirstMenuLinkAndPrintPageTitleTest() {
+	public void clickFirstMenuLinkAndPrintPageTitleTest() {
 
-		MainPage MainP = PageFactory.initElements(driver, MainPage.class);
+		MainPage mainP = PageFactory.initElements(driver, MainPage.class);
 		// 4. Get the page title and print it.
-		String MainPageTitle = MainP.GetPageTitle();
-		System.out.println(MainPageTitle);
+		String mainPageTitle = mainP.getPageTitle();
+		System.out.println(mainPageTitle);
 
 		// 5. Now, click on first menu link say "Contact us"
-		MainP.Click_ContactUS_Button();
+		mainP.clickContactUSButton();
 
 		// 6. Get the page title and print it.
 		ContactUsPage contactus = PageFactory.initElements(driver, ContactUsPage.class);
-		String ContactUsPageTitle = contactus.GetPageTitle();
-		System.out.println(ContactUsPageTitle);
+		String contactUsPageTitle = contactus.getPageTitle();
+		System.out.println(contactUsPageTitle);
 		// 7. Navigate back to Home Page.
 		driver.navigate().back();
 
 		// 8. Get the page title and print it. Verify that value matches with output of
 		// point no. 4
 		System.out.println(driver.getTitle());
-		if (driver.getTitle().equalsIgnoreCase(MainPageTitle)) {
+		if (driver.getTitle().equalsIgnoreCase(mainPageTitle)) {
 			System.out.println("Success! The page title we got matches the Main Page title");
 		} else {
 			System.out.println("Failure, The page title we got does not matche the Main Page title ");
@@ -68,7 +68,7 @@ public class ClickFirstMenuLinkAndPrintPageTitle {
 	// Closing browser
 	@AfterMethod
 	public void CloseBrowser() {
-		BrowserFactory.CloseBrowser();
+		BrowserFactory.closeBrowser();
 	}
 
 }

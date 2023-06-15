@@ -12,32 +12,32 @@ public class TshirtsPage {
 	private static Logger logger = LoggerFactory.getLogger(TshirtsPage.class);
 	WebDriver driver;
 	
-	public TshirtsPage(WebDriver driver) {
+	public void tshirtsPage(WebDriver driver) {
 		this.driver = driver;
 	}
 	
 	//Element Library
-	@FindBy(how = How.XPATH, using = "//*[@id=\"center_column\"]/ul/li/div/div[2]/div[2]/a[2]/span")WebElement More_Button_Product_One;
-	@FindBy(how = How.XPATH, using = "//*[@id=\"center_column\"]/ul/li/div/div[1]/div/a[1]/img")WebElement Product_Image;
-	@FindBy(how = How.XPATH, using = "//a[@class='addToWishlist wishlistProd_1']")WebElement wishlistProduct;
-	@FindBy(how = How.XPATH, using = "//p[@class='fancybox-error']")WebElement wishlist_ErrorBox;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"centercolumn\"]/ul/li/div/div[2]/div[2]/a[2]/span")WebElement moreButtonProductOne;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"centercolumn\"]/ul/li/div/div[1]/div/a[1]/img")WebElement productImage;
+	@FindBy(how = How.XPATH, using = "//a[@class='addToWishlist wishlistProd1']")WebElement wishlistProduct;
+	@FindBy(how = How.XPATH, using = "//p[@class='fancybox-error']")WebElement wishlistErrorBox;
 	
 	//InteractiveMethods
-	public void Hover_Over_Product() {
+	public void hoverOverProduct() {
 		Actions actions = new Actions(driver);
-		actions.moveToElement(Product_Image).perform();
+		actions.moveToElement(productImage).perform();
 	}
 	
-	public void Click_More_Button_Product_One() {
-		More_Button_Product_One.click();
+	public void clickMoreButtonProductOne() {
+		moreButtonProductOne.click();
 	}
 	
-	public void Click_wishlistProduct() {
+	public void clickwishlistProduct() {
 		wishlistProduct.click();
 	}
 	
-	public void Verify_wishlist_ErrorBox() {
-		if(wishlist_ErrorBox.getText().contains("You must be logged in to manage your wishlist.")) {
+	public void verifywishlistErrorBox() {
+		if(wishlistErrorBox.getText().contains("You must be logged in to manage your wishlist.")) {
 			logger.info("Success! Error message displayed");
 		}else {
 			logger.warn("Failure, Error message didn't display");

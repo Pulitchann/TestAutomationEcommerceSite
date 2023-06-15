@@ -10,16 +10,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
 	// Global Variables
-	public String path;
-	public FileInputStream fis = null;
+	private String path;
+	private FileInputStream fis = null;
 	private XSSFWorkbook workbook = null;
 	private XSSFSheet sheet = null;
-	private XSSFRow row = null;
-	private XSSFCell cell = null;
 
 	// Constructor to initialize variables
 	public ExcelReader(String path) {
-		this.path = path;
+		this.setPath(path);
 		try {
 			fis = new FileInputStream(path);
 			workbook = new XSSFWorkbook(fis);
@@ -34,20 +32,20 @@ public class ExcelReader {
 	public String getCellData(String sheetName, String colName, int rowNum) {
 		// For Sheet
 		int index = workbook.getSheetIndex(sheetName);
-		int col_Num = 0;
+		int colNum = 0;
 		sheet = workbook.getSheetAt(index);
 
 		// For Row
-		row = sheet.getRow(0);
+		XSSFRow row = sheet.getRow(0);
 		for (int i = 0; i < row.getLastCellNum(); i++) {
 			if (row.getCell(i).getStringCellValue().trim().equals(colName.trim())) {
-				col_Num = i;
+				colNum = i;
 			}
 		}
 
 		// For Column
 		row = sheet.getRow(rowNum - 1);
-		cell = row.getCell(col_Num);
+		XSSFCell cell = row.getCell(colNum);
 
 
 		// ------------------------------------
@@ -59,5 +57,13 @@ public class ExcelReader {
 			return null;
 		// -------------------------------------
 
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 }

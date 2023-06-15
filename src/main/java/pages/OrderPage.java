@@ -11,53 +11,53 @@ public class OrderPage {
 	private static Logger logger = LoggerFactory.getLogger(OrderPage.class);
 	WebDriver driver;
 	
-	public OrderPage(WebDriver driver) {
+	public void orderPage(WebDriver driver) {
 		this.driver = driver;
 	}
 	
 	//Element Library
-	@FindBy(how = How.XPATH, using = "//div[@id='center_column']/p[2]/a[1]")WebElement ProceedToCheckout_Button;
-	@FindBy(how = How.XPATH, using = "//div[@id='center_column']/form/p/button")WebElement ProceedToCheckout_Button_Address_Page;
-	@FindBy(how = How.XPATH, using = "//form[@id='form']/p/button")WebElement ProceedToCheckout_Button_Shipping_Page;
-	@FindBy(how = How.XPATH, using = "//input[@id='cgv']")WebElement CheckBox_AgreeToTerms_Shipping_Page;
-	@FindBy(how = How.XPATH, using = "//a[@class='bankwire']")WebElement PayByBankWire_Payment_Page;
-	@FindBy(how = How.XPATH, using = "//span[contains(text(),'I confirm my order')]")WebElement IConfirmMyOrder_Payment_Page;
-	@FindBy(how = How.XPATH, using = "//*[@id='header']/div[2]/div/div/nav/div[1]/a")WebElement MyAccount_Button;
-	@FindBy(how = How.XPATH, using = "//p[@class='cheque-indent']/strong[@class='dark']")WebElement Order_Confirmation;
+	@FindBy(how = How.XPATH, using = "//div[@id='centercolumn']/p[2]/a[1]")WebElement proceedToCheckoutButton;
+	@FindBy(how = How.XPATH, using = "//div[@id='centercolumn']/form/p/button")WebElement proceedToCheckoutButtonAddressPage;
+	@FindBy(how = How.XPATH, using = "//form[@id='form']/p/button")WebElement proceedToCheckoutButtonShippingPage;
+	@FindBy(how = How.XPATH, using = "//input[@id='cgv']")WebElement checkBoxAgreeToTermsShippingPage;
+	@FindBy(how = How.XPATH, using = "//a[@class='bankwire']")WebElement payByBankWirePaymentPage;
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'I confirm my order')]")WebElement iConfirmMyOrderPaymentPage;
+	@FindBy(how = How.XPATH, using = "//*[@id='header']/div[2]/div/div/nav/div[1]/a")WebElement myAccountButton;
+	@FindBy(how = How.XPATH, using = "//p[@class='cheque-indent']/strong[@class='dark']")WebElement orderConfirmation;
 	
 	
 	//InteractiveMethods
-	public void Click_ProceedToCheckout() {
-		ProceedToCheckout_Button.click();
+	public void clickProceedToCheckout() {
+		proceedToCheckoutButton.click();
 	}
 
-	public void Click_ProceedToCheckout_Address_Page() {
-		ProceedToCheckout_Button_Address_Page.click();
+	public void clickProceedToCheckoutAddressPage() {
+		proceedToCheckoutButtonAddressPage.click();
 	}
 
-	public void Click_ProceedToCheckout_Shipping_Page() {
-		ProceedToCheckout_Button_Shipping_Page.click();
+	public void clickProceedToCheckoutShippingPage() {
+		proceedToCheckoutButtonShippingPage.click();
 	}
 
-	public void Click_CheckBox_AgreeToTerms_Shipping_Page() {
-		CheckBox_AgreeToTerms_Shipping_Page.click();
+	public void clickCheckBoxAgreeToTermsShippingPage() {
+		checkBoxAgreeToTermsShippingPage.click();
 	}
 
-	public void Click_PayByBankWire_Payment_Page() {
-		PayByBankWire_Payment_Page.click();
+	public void clickPayByBankWirePaymentPage() {
+		payByBankWirePaymentPage.click();
 	}
 
-	public void Click_IConfirmMyOrder_Page() {
-		IConfirmMyOrder_Payment_Page.click();
+	public void clickIConfirmMyOrderPage() {
+		iConfirmMyOrderPaymentPage.click();
 	}
 	
-	public void Click_MyAccount_Button() {
-		MyAccount_Button.click();
+	public void clickMyAccountButton() {
+		myAccountButton.click();
 	}
 	
-	public void Assert_Order_Confirmation() {
+	public void assertOrderConfirmation() {
 		
-		if(Order_Confirmation.getText().contains("complete")) {
+		if(orderConfirmation.getText().contains("complete")) {
 			logger.info("Order Verified");
 		}else {
 			logger.warn("Order not completed");
